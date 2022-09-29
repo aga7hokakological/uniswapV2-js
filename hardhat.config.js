@@ -1,14 +1,14 @@
 require('@nomicfoundation/hardhat-toolbox');
+require('dotenv').config();
 
 module.exports = {
   blockGasLimit: 500_000_000,
   networks: {
     hardhat: {
+      forking: {
+        url: `https://eth-goerli.g.alchemy.com/v2/${process.env.PRIVATE_KEY}`,
+      }
     },
-    // testnet: {
-    //   url: "https://eth.bd.evmos.dev:8545",
-    //   accounts: [privateKey1, privateKey2],
-    // }
   },
   solidity: {
     compilers:[
